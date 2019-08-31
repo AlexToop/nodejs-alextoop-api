@@ -16,3 +16,11 @@ npm install --save-dev nodemon
 npm install express --save
 add "start": "nodemon server.js" to the package scripts.
 
+
+
+todo
+
+install mongo db on server 
+add all projects
+get all on alextoop com
+display - using handlebars?
