@@ -1,3 +1,11 @@
+'use strict';
+
+//https
+var fs = require('fs');
+var https = require('https');
+var path = require('path');
+//https
+
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 8443,
@@ -17,6 +25,17 @@ app.use(bodyParser.json());
 var routes = require('./api/routes/alextoopApiRoutes'); //importing route
 routes(app); //register the route
 
+//https
+var certsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
+var caCertsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
+var options = {
+    key: fs.readFileSync(path.join(certsPath, 'privkey.pem')),
+    cert: fs.readFileSync(path.join(caCertsPath, 'fullchain.pem'))
+};
+var server = https.createServer(options);
+server.on('request', app);
+server.listen(port);
+//https
 
 app.listen(port);
 
