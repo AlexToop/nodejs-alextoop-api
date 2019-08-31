@@ -1,15 +1,15 @@
 'use strict';
 module.exports = function(app) {
-  var todoList = require('../controllers/alextoopApiController');
+  var contentList = require('../controllers/alextoopApiController');
 
 
-  app.route('/content')
-    .get(todoList.list_all_tasks)
-    .post(todoList.create_a_task);
+  app.route('/tasks')
+    .get(contentList.list_all_tasks)
+    .post(contentList.create_a_task);
 
 
-  app.route('/content/:taskId')
-    .get(todoList.read_a_task)
-    .put(todoList.update_a_task)
-    .delete(todoList.delete_a_task);
+  app.route('/tasks/:taskId')
+    .get(contentList.read_a_task)
+    .put(contentList.update_a_task)
+    .delete(contentList.delete_a_task);
 };
