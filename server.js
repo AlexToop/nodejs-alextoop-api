@@ -25,6 +25,16 @@ app.use(bodyParser.json());
 var routes = require('./api/routes/alextoopApiRoutes'); //importing route
 routes(app); //register the route
 
+
+
+// app.listen(port);
+
+// app.use(function(req, res) {
+//     res.status(404).send({url: req.originalUrl + ' not found. Navigate to /content'})
+//   });
+
+// console.log('alextoop com\'s RESTful API server started on: ' + port);
+
 //https
 var certsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
 var caCertsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
@@ -36,11 +46,3 @@ var server = https.createServer(options);
 server.on('request', app);
 server.listen(port);
 //https
-
-app.listen(port);
-
-app.use(function(req, res) {
-    res.status(404).send({url: req.originalUrl + ' not found. Navigate to /content'})
-  });
-
-console.log('alextoop com\'s RESTful API server started on: ' + port);
