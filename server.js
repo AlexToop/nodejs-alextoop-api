@@ -4,6 +4,7 @@
 var fs = require('fs');
 var https = require('https');
 var path = require('path');
+var cors = require('cors');
 //https
 
 var express = require('express'),
@@ -20,6 +21,7 @@ mongoose.connect('mongodb://localhost/alextoopApi');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 
 var routes = require('./api/routes/alextoopApiRoutes'); //importing route

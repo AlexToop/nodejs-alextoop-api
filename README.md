@@ -6,6 +6,8 @@ credit: https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minut
 install monogodb on platform of choice: https://docs.mongodb.com/manual/administration/install-community/
 MacOS run in foreground: 
     mongod --config /usr/local/etc/mongod.conf
+Debian 
+    sudo service mongod start
 
 npm init
 touch server.js
